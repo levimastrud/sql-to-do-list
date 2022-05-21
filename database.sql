@@ -1,11 +1,12 @@
 -- database name is weekend-to-do-app
 
 CREATE TABLE tasks (
+    "id" serial primary key,
     "task" varchar(500),
-    "isComplete" BOOLEAN DEFAULT FALSE
+    "is_complete" BOOLEAN DEFAULT FALSE
 );
 
-INSERT INTO tasks ("task", "isComplete")
+INSERT INTO tasks ("task", "is_complete")
 VALUES ('Mow the lawn', 'No'),
 ('Do the dishes', 'No'),
 ('Study for exam', 'No'),

@@ -1,3 +1,74 @@
+@font-face {
+    font-family: roboto;
+    src: url(Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: unisans;
+    src: url(uni-sans.thin-caps.otf);
+}
+
+header {
+    color: rgb(96, 96, 96);
+    font-family: roboto;
+    font-size: 45px;
+    letter-spacing: 5px;
+    margin: 0 500px 0px 50px;
+}
+
 body {
-    color: blueviolet;
+    color: rgb(96, 96, 96);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#taskbody td{
+    border: 1px solid rgb(96, 96, 96);
+}
+
+table, .addTask {
+    width: 90%;
+    margin: 0 250px 0 50px;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+}
+
+.complete {
+    width: 10%;
+    overflow: hidden;
+}
+
+.deleteTH {
+    width: 10%;
+    overflow: hidden;
+}
+
+.task {
+    width: 80%;
+    align-self: stretch;
+    padding: 10px;
+}
+
+hr {
+    margin-bottom: 5%;
+    margin-top: 30px;
+}
+
+/* BUTTONS */
+
+.mark, .delete {
+    border: none;
+}
+
+.mark:hover {
+    color: white;
+    background-color: rgb(78, 209, 74);
+}
+
+.delete:hover {
+    color: white;
+    background-color: rgb(209, 74, 74);
 }
