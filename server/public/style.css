@@ -57,6 +57,11 @@ hr {
     margin-top: 30px;
 }
 
+.completed {
+    background-color: rgb(84, 84, 84);
+    color: rgb(154, 154, 154);
+}
+
 /* BUTTONS */
 
 .mark, .delete {

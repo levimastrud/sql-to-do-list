@@ -11,18 +11,44 @@ function onReady () {
 
 // Fetch data with GET
 
+let completed = [];
+
 function getTasks () {
     $.ajax({
         method: 'GET',
         url: '/list'
     }).then(response => {
         $('#taskbody').empty();
+
+        // Pushes the completed task's id in "completed" array
+
         for ( task of response ) {
+            if ( task.is_complete) {
+                completed.push(task.id)
+            }
+
             $('#taskbody').append(`<tr>
-                <td>${task.task}</td>
+                <td id = '${task.id}'>${task.task}</td>
                 <td><button data-taskid = ${task.id} class = 'mark'>✔</button></td>
                 <td><button data-taskid = ${task.id} class = 'delete'>X</button></td>
             </tr>`)
+        }
+        findCompleted()
+    })
+};
+
+
+
+// Finding and styling completed tasks
+
+function findCompleted () {
+    let completedTask = $('#taskbody').find('td');
+    completedTask.each( function () {
+        for ( task of completed ) {
+            if ( Number(this.id) === task ) {
+                $(this).addClass('completed')
+                return
+            }
         }
     })
 }
@@ -31,6 +57,8 @@ function getTasks () {
 
 function markComplete ( event ) {
     let taskid = $(event.target).data("taskid")
+    let current = $(event.target);
+    console.log(current)
     $.ajax({
         method: 'PUT',
         url: `/list/${taskid}`
