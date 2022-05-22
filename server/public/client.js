@@ -35,9 +35,9 @@ function getTasks () {
             }
 
             $('#taskbody').append(`<tr>
-                <td id = '${task.id}'>${task.task}</td>
-                <td><button data-taskid = ${task.id} class = 'mark'>✔</button></td>
-                <td><button data-taskid = ${task.id} class = 'delete'>X</button></td>
+                <td class = "taskColumn" id = '${task.id}'>${task.task}</td>
+                <td class = "buttonColumn" ><button data-taskid = ${task.id} class = 'mark'>✔</button></td>
+                <td class = "buttonColumn" ><button data-taskid = ${task.id} class = 'delete'>X</button></td>
             </tr>`)
         }
         findCompleted()
@@ -47,7 +47,7 @@ function getTasks () {
 
 
 // Finding and styling completed tasks... GLOBALLY :)
-// Five lines of code... so much pain
+// Five lines of code... so much pain.
 
 function findCompleted () {
     let completedTask = $('#taskbody').find('td');
@@ -100,6 +100,14 @@ function addTask () {
             task: $('#newTask').val()
         }
     }).then(response => {
+
+        // Party mode
+        
+        if ( $('#newTask').val() === 'partymode' ) {
+            $('body').addClass('rainbow');
+            $('header').html('time to party')
+        }
+
         getTasks();
         $('#newTask').val('')
         console.log(`Sent ${$('#newTask').val()}`)

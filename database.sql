@@ -10,7 +10,7 @@ INSERT INTO tasks ("task", "is_complete")
 VALUES ('Mow the lawn', 'No'),
 ('Do the dishes', 'No'),
 ('Study for exam', 'No'),
-('Complete to do list', 'No'),
+('Complete to do list', 'Yes'),
 ('Feed the cats', 'No')
 ;
 
