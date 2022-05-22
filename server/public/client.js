@@ -18,7 +18,14 @@ function getTasks () {
         method: 'GET',
         url: '/list'
     }).then(response => {
+
+        // Rebuilds table with accurate information
+
         $('#taskbody').empty();
+
+        // Fetches accurate completed array 
+
+        completed = [];
 
         // Pushes the completed task's id in "completed" array
 
@@ -39,7 +46,8 @@ function getTasks () {
 
 
 
-// Finding and styling completed tasks
+// Finding and styling completed tasks... GLOBALLY :)
+// Five lines of code... so much pain
 
 function findCompleted () {
     let completedTask = $('#taskbody').find('td');
@@ -47,7 +55,6 @@ function findCompleted () {
         for ( task of completed ) {
             if ( Number(this.id) === task ) {
                 $(this).addClass('completed')
-                return
             }
         }
     })
@@ -57,8 +64,6 @@ function findCompleted () {
 
 function markComplete ( event ) {
     let taskid = $(event.target).data("taskid")
-    let current = $(event.target);
-    console.log(current)
     $.ajax({
         method: 'PUT',
         url: `/list/${taskid}`
@@ -96,6 +101,7 @@ function addTask () {
         }
     }).then(response => {
         getTasks();
+        $('#newTask').val('')
         console.log(`Sent ${$('#newTask').val()}`)
     }).catch(error => {
         console.log('error posting on client side', error)

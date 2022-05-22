@@ -60,6 +60,7 @@ hr {
 .completed {
     background-color: rgb(84, 84, 84);
     color: rgb(154, 154, 154);
+    text-decoration: line-through;
 }
 
 /* BUTTONS */
