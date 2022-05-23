@@ -93,6 +93,10 @@ function deleteTask ( event ) {
 // Add a task with POST
 
 function addTask () {
+    if ( !$('#newTask').val() ) {
+        alert('Please add a task');
+        return
+    }
     $.ajax({
         method: 'POST',
         url: '/list',
