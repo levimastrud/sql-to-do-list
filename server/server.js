@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 5001;
+const PORT = process.env.port || 5001;
 const listRouter = require('./routes/router.js')
 
 // Middle ware
